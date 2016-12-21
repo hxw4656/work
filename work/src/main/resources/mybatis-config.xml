@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>    
+    <!-- 在这个文件放置一些全局性的配置  
+    <typeAliases>  
+        <typeAlias type="实体类" alias="别名"/>  
+    </typeAliases> -->  
+   
+   <settings>     
+        <setting name="cacheEnabled" value="false" />     
+    </settings>    
+    <!-- 以下内容不再需要手动配置  已经自动映射 -->  
+    <mappers>     
+        <!-- <mapper resource="com/gfan/api/framework/model/sqlMapper/TestuserMapper.xml" /> -->  
+    </mappers>    
+      
+</configuration> 

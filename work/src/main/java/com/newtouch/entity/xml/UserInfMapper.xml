@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.newtouch.dao.UserInfDao">
+
+	<resultMap type="com.newtouch.entity.UserInf" id="userInfResult">
+		<id property="userId" column="USER_ID" jdbcType="BIGINT"/>
+		<result property="userName" column="USER_NAME" jdbcType="VARCHAR"/>
+		<result property="userCode" column="USER_CODE" jdbcType="VARCHAR"/>
+		<result property="userNo" column="USER_NO" jdbcType="VARCHAR"/>
+		<result property="userPassword" column="USER_PASSWORD" jdbcType="VARCHAR"/>
+		<result property="createDate" column="CREATE_DATE" jdbcType="TIMESTAMP"/>
+		<result property="updateDate" column="UPDATE_DATE" jdbcType="TIMESTAMP"/>
+		<result property="status" column="STATUS" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<sql id="whereSql">
+		<where>
+			<if test="userName != null">
+				and USER_NAME = #{userName}
+			</if>
+			<if test="userCode != null">
+				and USER_CODE = #{userCode}
+			</if>
+			<if test="userNo != null">
+				and USER_No = #{userNo}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="queryByUserInf" resultMap="userInfResult" parameterType="com.newtouch.entity.UserInf">
+		SELECT USER_ID,USER_NAME,USER_CODE,USER_NO,USER_PASSWORD,CREATE_DATE,UPDATE_DATE,STATUS 
+		from user_inf
+		<include refid="whereSql"></include>
+	</select>
+</mapper>
