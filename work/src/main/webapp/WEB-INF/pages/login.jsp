@@ -11,8 +11,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <title>毕业设计管理系统</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<%=basePath %>/resources/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="<%=basePath %>/resources/plugins/font-awesome/font-awesome.min.css">
-  <link rel="stylesheet" href="<%=basePath %>/resources/plugins/ionicons/ionicons.min.css">
+  <link rel="stylesheet" href="<%=basePath %>/resources/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<%=basePath %>/resources/plugins/ionicons/css/ionicons.min.css">
   <link rel="stylesheet" href="<%=basePath %>/resources/AdminLTE/css/AdminLTE.min.css">
   <link rel="stylesheet" href="<%=basePath %>/resources/plugins/iCheck/square/blue.css">
 

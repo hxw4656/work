@@ -30,8 +30,38 @@
 		</where>
 	</sql>
 	
+	<insert id="saveUserInf" parameterType="com.newtouch.entity.UserInf">
+		insert into user_inf(USER_NAME,USER_CODE,USER_NO,USER_PASSWORD,CREATE_DATE,UPDATE_DATE,STATUS) 
+		values(#{userName},#{userCode},#{userNo},#{userPassword},now(),now(),#{status}})
+	</insert>
+	
+	
+	<update id="updateUserInf" parameterType="com.newtouch.entity.UserInf">
+		update user_inf set UPDATE_DATE = now()
+			<if test="userName != null">
+				, USER_NAME = #{userName}
+			</if>
+			<if test="userCode != null">
+				, USER_CODE = #{userCode}
+			</if>
+			<if test="userNo != null">
+				, USER_No = #{userNo}
+			</if>
+			 where user_id = #{userId}
+	</update>
+	
+	<delete id="deleteUserInf" parameterType="com.newtouch.entity.UserInf">
+		delete user_inf where user_id = #{userId}
+	</delete>
+	
 	<select id="queryByUserInf" resultMap="userInfResult" parameterType="com.newtouch.entity.UserInf">
 		SELECT USER_ID,USER_NAME,USER_CODE,USER_NO,USER_PASSWORD,CREATE_DATE,UPDATE_DATE,STATUS 
+		from user_inf
+		<include refid="whereSql"></include>
+		limit #{start},#{limit}
+	</select>
+	<select id="queryCountByUserInf" resultType="int" parameterType="com.newtouch.entity.UserInf">
+		SELECT count(USER_ID) 
 		from user_inf
 		<include refid="whereSql"></include>
 	</select>

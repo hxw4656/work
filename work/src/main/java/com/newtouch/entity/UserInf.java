@@ -13,7 +13,6 @@ public class UserInf implements Serializable {
 	 */
 	private static final long serialVersionUID = -4664584277874398285L;
 
-	
 	private Long userId;
 	
 	private String userName;
@@ -29,5 +28,9 @@ public class UserInf implements Serializable {
 	private Date updateDate;
 	
 	private String status;
+	
+	private int start = 0;
+	
+	private int limit;
 	
 }
